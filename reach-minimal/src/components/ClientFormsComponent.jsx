@@ -2,6 +2,7 @@ import useForm from "./useForm";
 import React from "react";
 import validate from "./LoginFormValidationRules";
 import ClientInformationService from '../services/ClientInformationService';
+import DropDown from './Dropdown';
 
 
 const ClientFormsComponent = () => {
@@ -9,6 +10,8 @@ const ClientFormsComponent = () => {
   if (!values.applyFor) {
     values.applyFor = "1";
   }
+
+
   function login() {
     console.log(values);
     let formData = values;
@@ -55,11 +58,12 @@ const ClientFormsComponent = () => {
                   <label className="label" htmlFor="selectbasic-0">State of Client Residence <label className="has-text-danger">*</label></label>
                   <div className="control">
                     <div className="select is-half">
-                      <select id="selectbasic-0" name="clientState" onChange={handleChange} >
-                        <option value="">Please Select</option>
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                      </select>
+                      <DropDown
+                        id={"selectbasic-0"}
+                        name={"clientState"}
+                        handleChange={handleChange}
+                        selectedValue={values.clientState}
+                      />
                     </div>
                     {errors.clientState && <p className="help is-danger">{errors.clientState}</p>}
                   </div>
@@ -153,11 +157,11 @@ const ClientFormsComponent = () => {
                   <label className="label">Client Gender <label className="has-text-danger">*</label></label>
                   <div className="control">
                     <label className="radio" htmlFor="clientGender-0">
-                      <input type="radio" name="clientGender" id="clientGender-0" value="Male" checked="checked" onChange={handleChange} />
+                      <input type="radio" name="clientGender" id="clientGender-0" value="Male" checked={!values.clientGender || values.clientGender === "Male"} onChange={handleChange} />
                       Male
                     </label> <br />
                     <label className="radio" htmlFor="clientGender-1">
-                      <input type="radio" name="clientGender" id="clientGender-1" value="Female" onChange={handleChange} />
+                      <input type="radio" name="clientGender" id="clientGender-1" value="Female" checked={values.clientGender === "Female"} onChange={handleChange} />
                       Female
                     </label>
                   </div>
@@ -186,11 +190,12 @@ const ClientFormsComponent = () => {
                   <label className="label">Tobacco/Nicotine Use</label>
                   <div className="control">
                     <label className="radio" htmlFor="clientTobaccoNicUse-0">
-                      <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-0" value="yes" checked="checked" onChange={handleChange} />
+                      <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-0" value="yes"
+                        checked={!values.clientTobaccoNicUse || values.clientTobaccoNicUse === "yes"} onChange={handleChange} />
                       Yes
                     </label> <br />
                     <label className="radio" htmlFor="clientTobaccoNicUse-1">
-                      <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-1" value="no" onChange={handleChange} />
+                      <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-1" checked={values.clientTobaccoNicUse === "no"} value="no" onChange={handleChange} />
                       No
                     </label>
                   </div>
@@ -319,11 +324,11 @@ const ClientFormsComponent = () => {
                     <label className="label">Spouse Gender</label>
                     <div className="control">
                       <label className="radio" htmlFor="partnerGender-0">
-                        <input type="radio" name="partnerGender" id="partnerGender-0" value="Male" checked="checked" onChange={handleChange} />
+                        <input type="radio" name="partnerGender" id="partnerGender-0" value="Male" checked={!values.partnerGender || values.partnerGender === "Male"} onChange={handleChange} />
                         Male
                       </label> <br />
                       <label className="radio" htmlFor="partnerGender-1">
-                        <input type="radio" name="partnerGender" id="partnerGender-1" value="Female" onChange={handleChange} />
+                        <input type="radio" name="partnerGender" id="partnerGender-1" value="Female" checked={values.partnerGender === "Female"} onChange={handleChange} />
                         Female
                       </label>
                     </div>
@@ -352,11 +357,11 @@ const ClientFormsComponent = () => {
                     <label className="label">Tobacco/Nicotine Use</label>
                     <div className="control">
                       <label className="radio" htmlFor="partnerTobaccoNicUse-0">
-                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-0" value="yes" checked="checked" onChange={handleChange} />
+                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-0" value="yes" checked={!values.partnerTobaccoNicUse || values.partnerTobaccoNicUse === "yes"} onChange={handleChange} />
                         Yes
                       </label> <br />
                       <label className="radio" htmlFor="partnerTobaccoNicUse-1">
-                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-1" value="no" onChange={handleChange} />
+                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-1" value="no" checked={values.partnerTobaccoNicUse === "no"} onChange={handleChange} />
                         No
                       </label>
                     </div>
@@ -509,11 +514,12 @@ const ClientFormsComponent = () => {
                   <label className="label" htmlFor="selectbasic-0">Agent Residence State <label className="has-text-danger">*</label></label>
                   <div className="control">
                     <div className="select">
-                      <select id="selectbasic-0" name="agentState" onChange={handleChange} >
-                        <option value="">Please Select</option>
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                      </select>
+                      <DropDown
+                        id={"agentState-0"}
+                        name={"agentState"}
+                        handleChange={handleChange}
+                        selectedValue={values.agentState}
+                      />
                     </div>
                     {errors.agentState && <p className="help is-danger">{errors.agentState}</p>}
                   </div>
