@@ -60,21 +60,17 @@ const options = [
 const Dropdowm = ({
     id,
     name,
-    title,
+    className,
     handleChange,
     selectedValue
   }) => (
-    <div>
-      <h1>{title}</h1>
-  
-      <select id={id} name={name} onChange={handleChange} value={selectedValue}>
+      <select id={id} name={name} onChange={handleChange} value={selectedValue} >
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
       </select>
-    </div>
   );
   
   export default Dropdowm;

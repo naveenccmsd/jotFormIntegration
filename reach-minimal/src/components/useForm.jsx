@@ -9,13 +9,13 @@ const useForm = (callback, validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
-      // values.loading = "";
     }
   }, [errors]);
 
   const handleSubmit = event => {
     if (event) event.preventDefault();
     setIsSubmitting(true);
+    localEvent.formSubmitClicked = true;
     setErrors(validate(values));
   };
 
@@ -23,14 +23,16 @@ const useForm = (callback, validate) => {
     event.persist();
     setValues(values => ({ ...values, [event.target.name]: event.target.value }));
     setIsSubmitting(false);
-    setErrors(validate(values));
+    if (localEvent.formSubmitClicked === true) {
+      setErrors(validate(values));
+    }
   };
 
   const enableLoading = event => {
-    setEvents(localEvent => ({ ...localEvent, "loading" : "is-loading" }));
+    setEvents(localEvent => ({ ...localEvent, "loading": "is-loading" }));
   };
   const disableLoading = event => {
-    setEvents(localEvent => ({ ...localEvent, "loading" : "not-loading" }));
+    setEvents(localEvent => ({ ...localEvent, "loading": "not-loading" }));
   };
 
   const resetForm = event => {

@@ -10,6 +10,9 @@ const ClientFormsComponent = () => {
   if (!values.applyFor) {
     values.applyFor = "1";
   }
+  if(!localEvent.formSubmitClicked){
+    localEvent.formSubmitClicked = false;
+  }
 
 
   function login() {
@@ -57,9 +60,10 @@ const ClientFormsComponent = () => {
                 <div className="field column is-half">
                   <label className="label" htmlFor="selectbasic-0">State of Client Residence <label className="has-text-danger">*</label></label>
                   <div className="control">
-                    <div className="select is-half">
+                    <div className={`select is-half ${errors.clientState && "is-danger"}`}>
                       <DropDown
                         id={"selectbasic-0"}
+                        className={`select ${errors.clientState && "is-danger"}`}
                         name={"clientState"}
                         handleChange={handleChange}
                         selectedValue={values.clientState}
@@ -513,7 +517,7 @@ const ClientFormsComponent = () => {
                 <div className="field column is-half">
                   <label className="label" htmlFor="selectbasic-0">Agent Residence State <label className="has-text-danger">*</label></label>
                   <div className="control">
-                    <div className="select">
+                    <div className={`select ${errors.agentState && "is-danger"}`}>
                       <DropDown
                         id={"agentState-0"}
                         name={"agentState"}
