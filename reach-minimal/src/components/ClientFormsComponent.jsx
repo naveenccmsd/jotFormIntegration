@@ -12,9 +12,9 @@ const ClientFormsComponent = () => {
   function login() {
     console.log(values);
     let formData = values;
-    // enableLoading()
+    enableLoading()
     ClientInformationService.createFormEntry(formData).then(res => {
-      // disableLoading()
+      disableLoading()
       resetForm()
     });
   }
@@ -259,172 +259,174 @@ const ClientFormsComponent = () => {
                 </div>
               </div>
               {/* -- Client Information End  -- */}
+              <div className={`${values.applyFor === "3" && "displayNone"}`}>
+                <h2 className="title is-4">Spouse/Partner Information</h2>
+                <hr />
 
-              <h2 className="title is-4">Spouse/Partner Information</h2>
-              <hr />
+                {/* -- Partner Information Start  -- */}
+                <div className="columns">
+                  <div className="field column is-half">
+                    <label className="label">Spouse/Partner</label>
+                    <div className="control">
+                      <input
+                        autoComplete="off"
+                        className={`input ${errors.partnerFirstName && "is-danger"}`}
+                        type="text"
+                        name="partnerFirstName"
+                        onChange={handleChange}
+                        value={values.partnerFirstName || ""}
+                        placeholder="First Name"
+                        required
+                      />
+                      {errors.partnerFirstName && <p className="help is-danger">{errors.partnerFirstName}</p>}
+                    </div>
+                  </div>
+                  <div className="field column">
+                    <label className="label"></label>
+                    <div className="control app-margin-top ">
+                      <input
+                        className={`input ${errors.partnerLastName && "is-danger"}`}
+                        type="text"
+                        name="partnerLastName"
+                        onChange={handleChange}
+                        value={values.partnerLastName || ""}
+                        placeholder="Last Name"
+                        required
+                      />
+                    </div>
+                    {errors.partnerLastName && <p className="help is-danger">{errors.partnerLastName}</p>}
+                  </div>
+                </div>
 
-              {/* -- Partner Information Start  -- */}
-              <div className="columns">
-                <div className="field column is-half">
-                  <label className="label">Spouse/Partner</label>
-                  <div className="control">
-                    <input
-                      autoComplete="off"
-                      className={`input ${errors.partnerFirstName && "is-danger"}`}
-                      type="text"
-                      name="partnerFirstName"
-                      onChange={handleChange}
-                      value={values.partnerFirstName || ""}
-                      placeholder="First Name"
-                      required
-                    />
-                    {errors.partnerFirstName && <p className="help is-danger">{errors.partnerFirstName}</p>}
+                <div className="columns">
+                  <div className="field column is-half">
+                    <label className="label">Spouse Date of Birth (or Age)</label>
+                    <div className="control">
+                      <input
+                        autoComplete="off"
+                        className={`input ${errors.partnerAge && "is-danger"}`}
+                        type="text"
+                        name="partnerAge"
+                        onChange={handleChange}
+                        value={values.partnerAge || ""}
+                        placeholder="Client DOB or Age"
+                        required
+                      />
+                      {errors.partnerAge && <p className="help is-danger">{errors.partnerAge}</p>}
+                    </div>
+                  </div>
+                  <div className="field column">
+                    <label className="label">Spouse Gender</label>
+                    <div className="control">
+                      <label className="radio" htmlFor="partnerGender-0">
+                        <input type="radio" name="partnerGender" id="partnerGender-0" value="Male" checked="checked" onChange={handleChange} />
+                        Male
+                      </label> <br />
+                      <label className="radio" htmlFor="partnerGender-1">
+                        <input type="radio" name="partnerGender" id="partnerGender-1" value="Female" onChange={handleChange} />
+                        Female
+                      </label>
+                    </div>
+                    {errors.partnerGender && <p className="help is-danger">{errors.partnerGender}</p>}
                   </div>
                 </div>
-                <div className="field column">
-                  <label className="label"></label>
-                  <div className="control app-margin-top ">
-                    <input
-                      className={`input ${errors.partnerLastName && "is-danger"}`}
-                      type="text"
-                      name="partnerLastName"
-                      onChange={handleChange}
-                      value={values.partnerLastName || ""}
-                      placeholder="Last Name"
-                      required
-                    />
-                  </div>
-                  {errors.partnerLastName && <p className="help is-danger">{errors.partnerLastName}</p>}
-                </div>
-              </div>
 
-              <div className="columns">
-                <div className="field column is-half">
-                  <label className="label">Spouse Date of Birth (or Age)</label>
-                  <div className="control">
-                    <input
-                      autoComplete="off"
-                      className={`input ${errors.partnerAge && "is-danger"}`}
-                      type="text"
-                      name="partnerAge"
-                      onChange={handleChange}
-                      value={values.partnerAge || ""}
-                      placeholder="Client DOB or Age"
-                      required
-                    />
-                    {errors.partnerAge && <p className="help is-danger">{errors.partnerAge}</p>}
+                <div className="columns">
+                  <div className="field column is-half">
+                    <label className="label">Spouse Last Complete Physical</label>
+                    <div className="control">
+                      <input
+                        autoComplete="off"
+                        className={`input ${errors.partnerLastPhysicalComplete && "is-danger"}`}
+                        type="text"
+                        name="partnerLastPhysicalComplete"
+                        onChange={handleChange}
+                        value={values.partnerLastPhysicalComplete || ""}
+                        placeholder="Date"
+                        required
+                      />
+                      {errors.partnerLastPhysicalComplete && <p className="help is-danger">{errors.partnerLastPhysicalComplete}</p>}
+                    </div>
+                  </div>
+                  <div className="field column">
+                    <label className="label">Tobacco/Nicotine Use</label>
+                    <div className="control">
+                      <label className="radio" htmlFor="partnerTobaccoNicUse-0">
+                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-0" value="yes" checked="checked" onChange={handleChange} />
+                        Yes
+                      </label> <br />
+                      <label className="radio" htmlFor="partnerTobaccoNicUse-1">
+                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-1" value="no" onChange={handleChange} />
+                        No
+                      </label>
+                    </div>
+                    {errors.partnerTobaccoNicUse && <p className="help is-danger">{errors.partnerTobaccoNicUse}</p>}
                   </div>
                 </div>
-                <div className="field column">
-                  <label className="label">Spouse Gender</label>
-                  <div className="control">
-                    <label className="radio" htmlFor="partnerGender-0">
-                      <input type="radio" name="partnerGender" id="partnerGender-0" value="Male" checked="checked" onChange={handleChange} />
-                      Male
-                    </label> <br />
-                    <label className="radio" htmlFor="partnerGender-1">
-                      <input type="radio" name="partnerGender" id="partnerGender-1" value="Female" onChange={handleChange} />
-                      Female
-                    </label>
-                  </div>
-                  {errors.partnerGender && <p className="help is-danger">{errors.partnerGender}</p>}
-                </div>
-              </div>
 
-              <div className="columns">
-                <div className="field column is-half">
-                  <label className="label">Spouse Last Complete Physical</label>
-                  <div className="control">
-                    <input
-                      autoComplete="off"
-                      className={`input ${errors.partnerLastPhysicalComplete && "is-danger"}`}
-                      type="text"
-                      name="partnerLastPhysicalComplete"
-                      onChange={handleChange}
-                      value={values.partnerLastPhysicalComplete || ""}
-                      placeholder="Date"
-                      required
-                    />
-                    {errors.partnerLastPhysicalComplete && <p className="help is-danger">{errors.partnerLastPhysicalComplete}</p>}
+                <div className="columns">
+                  <div className="field column is-half">
+                    <label className="label">Height</label>
+                    <div className="control">
+                      <input
+                        autoComplete="off"
+                        className={`input ${errors.partnerHeight && "is-danger"}`}
+                        type="text"
+                        name="partnerHeight"
+                        onChange={handleChange}
+                        value={values.partnerHeight || ""}
+                        placeholder="Spouse Height"
+                        required
+                      />
+                      {errors.partnerHeight && <p className="help is-danger">{errors.partnerHeight}</p>}
+                    </div>
+                  </div>
+                  <div className="field column">
+                    <label className="label">Weight</label>
+                    <div className="control">
+                      <input
+                        autoComplete="off"
+                        className={`input ${errors.partnerWeight && "is-danger"}`}
+                        type="text"
+                        name="partnerWeight"
+                        onChange={handleChange}
+                        value={values.partnerWeight || ""}
+                        placeholder="Spouse Weight"
+                        required
+                      />
+                    </div>
+                    {errors.partnerWeight && <p className="help is-danger">{errors.partnerWeight}</p>}
                   </div>
                 </div>
-                <div className="field column">
-                  <label className="label">Tobacco/Nicotine Use</label>
-                  <div className="control">
-                    <label className="radio" htmlFor="partnerTobaccoNicUse-0">
-                      <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-0" value="yes" checked="checked" onChange={handleChange} />
-                      Yes
-                    </label> <br />
-                    <label className="radio" htmlFor="partnerTobaccoNicUse-1">
-                      <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-1" value="no" onChange={handleChange} />
-                      No
-                    </label>
-                  </div>
-                  {errors.partnerTobaccoNicUse && <p className="help is-danger">{errors.partnerTobaccoNicUse}</p>}
-                </div>
-              </div>
 
-              <div className="columns">
-                <div className="field column is-half">
-                  <label className="label">Height</label>
-                  <div className="control">
-                    <input
-                      autoComplete="off"
-                      className={`input ${errors.partnerHeight && "is-danger"}`}
-                      type="text"
-                      name="partnerHeight"
-                      onChange={handleChange}
-                      value={values.partnerHeight || ""}
-                      placeholder="Spouse Height"
-                      required
-                    />
-                    {errors.partnerHeight && <p className="help is-danger">{errors.partnerHeight}</p>}
+                <div className="columns">
+                  <div className="field column is-full">
+                    <label className="label">Spouse/Partner Medications with Dosage & Condition:</label>
+                    <div className="control">
+                      <textarea className={`textarea ${errors.partnerMedication && "is-danger"}`} rows="6" id="partnerMedication-0"
+                        name="partnerMedication"
+                        placeholder="Example: Lisinopril 37.5mg 1x day for Hypertension." onChange={handleChange}>
+                      </textarea>
+                      {errors.partnerMedication && <p className="help is-danger">{errors.partnerMedication}</p>}
+                    </div>
                   </div>
                 </div>
-                <div className="field column">
-                  <label className="label">Weight</label>
-                  <div className="control">
-                    <input
-                      autoComplete="off"
-                      className={`input ${errors.partnerWeight && "is-danger"}`}
-                      type="text"
-                      name="partnerWeight"
-                      onChange={handleChange}
-                      value={values.partnerWeight || ""}
-                      placeholder="Spouse Weight"
-                      required
-                    />
-                  </div>
-                  {errors.partnerWeight && <p className="help is-danger">{errors.partnerWeight}</p>}
-                </div>
-              </div>
 
-              <div className="columns">
-                <div className="field column is-full">
-                  <label className="label">Spouse/Partner Medications with Dosage & Condition:</label>
-                  <div className="control">
-                    <textarea className={`textarea ${errors.partnerMedication && "is-danger"}`} rows="6" id="partnerMedication-0"
-                      name="partnerMedication"
-                      placeholder="Example: Lisinopril 37.5mg 1x day for Hypertension." onChange={handleChange}>
-                    </textarea>
-                    {errors.partnerMedication && <p className="help is-danger">{errors.partnerMedication}</p>}
-                  </div>
-                </div>
-              </div>
-
-              <div className="columns">
-                <div className="field column is-full">
-                  <label className="label">Spouse/Partner Surgeries or Other Health Concerns:</label>
-                  <div className="control">
-                    <textarea className={`textarea ${errors.partnerHealth && "is-danger"}`} rows="6" id="partnerHealth-0"
-                      name="partnerHealth"
-                      placeholder="Example: Knee surgery in March 2018. No complications. Completely recovered." onChange={handleChange} >
-                    </textarea>
-                    {errors.partnerHealth && <p className="help is-danger">{errors.partnerHealth}</p>}
+                <div className="columns">
+                  <div className="field column is-full">
+                    <label className="label">Spouse/Partner Surgeries or Other Health Concerns:</label>
+                    <div className="control">
+                      <textarea className={`textarea ${errors.partnerHealth && "is-danger"}`} rows="6" id="partnerHealth-0"
+                        name="partnerHealth"
+                        placeholder="Example: Knee surgery in March 2018. No complications. Completely recovered." onChange={handleChange} >
+                      </textarea>
+                      {errors.partnerHealth && <p className="help is-danger">{errors.partnerHealth}</p>}
+                    </div>
                   </div>
                 </div>
               </div>
               {/* -- Partner/Spouse Information End  -- */}
+
 
               <div className="columns">
                 <div className="field column is-half">
@@ -551,11 +553,8 @@ const ClientFormsComponent = () => {
               </div>
               <hr />
               <div className="has-text-centered">
-                <button type="submit" className={`button is-medium is-responsive is-primary `} onChange={handleChange} >
+                <button type="submit" className={`button is-medium is-responsive is-primary ${localEvent.loading}`} onChange={handleChange} >
                   &nbsp;&nbsp;&nbsp; Submit &nbsp;&nbsp;&nbsp;
-
-                  {/* {localEvent.loading && <p className="help is-danger">{localEvent.loading}</p>} */}
-
                 </button>
               </div>
             </form>

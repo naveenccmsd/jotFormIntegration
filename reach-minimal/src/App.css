@@ -57,5 +57,8 @@ select {
 .title.is-4{
   font-weight: 700;
 }
+.displayNone{
+  display: none;
+}
 
 

@@ -27,10 +27,10 @@ const useForm = (callback, validate) => {
   };
 
   const enableLoading = event => {
-    // setEvents(localEvent => ({ ...localEvent, "loading": "is-loading" }));
+    setEvents(localEvent => ({ ...localEvent, "loading" : "is-loading" }));
   };
   const disableLoading = event => {
-    // setEvents(localEvent => ({ ...localEvent, ["loading": "not-loading" }));
+    setEvents(localEvent => ({ ...localEvent, "loading" : "not-loading" }));
   };
 
   const resetForm = event => {
@@ -47,6 +47,7 @@ const useForm = (callback, validate) => {
     disableLoading,
     values,
     errors,
+    localEvent
   };
 };
 
