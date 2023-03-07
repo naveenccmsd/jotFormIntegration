@@ -1,0 +1,6 @@
+
+.vscode/
+node_modules/
+springboot-backend/.mvn/
+springboot-backend/mvnw
+springboot-backend/mvnw.cmd
