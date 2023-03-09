@@ -64,7 +64,7 @@ const Dropdowm = ({
     handleChange,
     selectedValue
   }) => (
-      <select id={id} name={name} onChange={handleChange} value={selectedValue} >
+      <select id={id} name={name} onClick={handleChange} onChange={handleChange} value={selectedValue} >
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}

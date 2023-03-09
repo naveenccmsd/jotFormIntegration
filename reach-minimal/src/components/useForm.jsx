@@ -23,9 +23,18 @@ const useForm = (callback, validate) => {
     event.persist();
     setValues(values => ({ ...values, [event.target.name]: event.target.value }));
     setIsSubmitting(false);
+    console.log(values);
     if (localEvent.formSubmitClicked === true) {
       setErrors(validate(values));
     }
+    if (values.applyFor === "3") {
+      Object.entries(values).map(([key, value]) => {
+        if (key.startsWith("partner"))
+          delete values[key];
+      });
+    }
+
+
   };
 
   const enableLoading = event => {

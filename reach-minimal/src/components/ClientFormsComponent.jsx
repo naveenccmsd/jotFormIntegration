@@ -36,17 +36,17 @@ const ClientFormsComponent = () => {
                   <div className="control">
                     <div className="column is-full">
                       <label className="radio" htmlFor="applyFor-0">
-                        <input type="radio" name="applyFor" id="applyFor-0" value="1" checked={values.applyFor === "1"} onChange={handleChange} />
+                        <input type="radio" name="applyFor" id="applyFor-0" value="1" checked={values.applyFor === "1"} onClick={handleChange} onChange={handleChange} />
                         &nbsp;&nbsp; Married / Partners - Both applying together
                       </label>
                       <br />
                       <label className="radio" htmlFor="applyFor-1">
-                        <input type="radio" name="applyFor" id="applyFor-1" value="2" checked={values.applyFor === "2"} onChange={handleChange} />
+                        <input type="radio" name="applyFor" id="applyFor-1" value="2" checked={values.applyFor === "2"} onClick={handleChange} onChange={handleChange} />
                         &nbsp;&nbsp; Married / Partners - Only one partner applying
                       </label>
                       <br />
                       <label className="radio" htmlFor="applyFor-2">
-                        <input type="radio" name="applyFor" id="applyFor-2" value="3" checked={values.applyFor === "3"} onChange={handleChange} />
+                        <input type="radio" name="applyFor" id="applyFor-2" value="3" checked={values.applyFor === "3"} onClick={handleChange} onChange={handleChange} />
                         &nbsp;&nbsp; Single
                       </label>
                     </div>
