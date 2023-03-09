@@ -7,6 +7,8 @@ public class CaptchaSettings {
 
     private String site;
     private String secret;
+
+    private String url;
     
     //reCAPTCHA V3
     private String siteV3;
@@ -18,6 +20,14 @@ public class CaptchaSettings {
 
     public String getSite() {
         return site;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public void setSite(String site) {

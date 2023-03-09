@@ -21,7 +21,7 @@ public class CaptchaServiceV3 extends AbstractCaptchaService {
     public void processResponse(String response, final String action) {
         securityCheck(response);
         
-        final URI verifyUri = URI.create(String.format(RECAPTCHA_URL_TEMPLATE, getReCaptchaSecret(), response, getClientIP()));
+        final URI verifyUri = URI.create(String.format(getUrl(), getReCaptchaSecret(), response, getClientIP()));
         try {
 
             GoogleRequest googleRequest = new GoogleRequest(getReCaptchaSecret(),response, getClientIP());

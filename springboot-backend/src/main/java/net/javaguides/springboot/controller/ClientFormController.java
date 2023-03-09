@@ -24,7 +24,7 @@ public class ClientFormController {
     ClientEmailService clientEmailService;
 
     @Autowired
-    private ICaptchaService captchaServiceV3;
+    ICaptchaService captchaServiceV3;
 
     Logger logger = LoggerFactory.getLogger(ClientFormController.class);
 

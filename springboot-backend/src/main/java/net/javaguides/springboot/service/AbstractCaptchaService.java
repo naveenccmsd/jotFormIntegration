@@ -28,13 +28,15 @@ public abstract class AbstractCaptchaService implements ICaptchaService {
     protected RestOperations restTemplate;
 
     protected static final Pattern RESPONSE_PATTERN = Pattern.compile("[A-Za-z0-9_-]+");
-
-    protected static final String RECAPTCHA_URL_TEMPLATE = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s&remoteip=%s";
-
+    
     @Override
     public String getReCaptchaSite() {
         return captchaSettings.getSite();
     }
+    public String getUrl() {
+        return captchaSettings.getUrl();
+    }
+
 
     @Override
     public String getReCaptchaSecret() {

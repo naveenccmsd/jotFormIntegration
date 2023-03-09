@@ -14,9 +14,7 @@ import javax.mail.internet.MimeMessage;
 public class ClientEmailService {
     @Qualifier("gmail")
     @Autowired
-    private JavaMailSender javaMailSender;
-    @Autowired
-    Configuration fmConfiguration;
+    JavaMailSender javaMailSender;
 
     public void sendEmail(String content) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();

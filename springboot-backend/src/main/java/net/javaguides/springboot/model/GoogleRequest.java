@@ -12,7 +12,6 @@ public class GoogleRequest {
     @JsonProperty("remoteip")
     private String remoteIp;
 
-    public GoogleRequest(){}
     public GoogleRequest(String secret, String response ,String remoteIp){
         this.secret = secret;
         this.response = response;
