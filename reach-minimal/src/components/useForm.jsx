@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import React from "react";
+import {isValidValue} from "./LoginFormValidationRules";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
@@ -24,36 +25,37 @@ const useForm = (callback, validate) => {
 
   const handleChange = event => {
     event.persist();
-    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
-    setIsSubmitting(false);
-    console.log(values);
-    if (localEvent.formSubmitClicked === true) {
-      setErrors(validate(values));
+    if (isValidValue(event.target.name, event.target.value)) {
+      setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+      setIsSubmitting(false);
+      console.log(values);
+      if (localEvent.formSubmitClicked === true) {
+        setErrors(validate(values));
+      }
+      if (values.applyFor !== "Married / Partners - Both applying together") {
+        Object.entries(values).map(([key, value]) => {
+          if (key.startsWith("partner"))
+            delete values[key];
+        });
+      }
     }
-    if (values.applyFor != "Married / Partners - Both applying together") {
-      Object.entries(values).map(([key, value]) => {
-        if (key.startsWith("partner"))
-          delete values[key];
-      });
-    }
-
 
   };
 
   const refreshToken = event => {
     const timeTaken = Date.now() - localEvent.captchaLoaded;
     if (!localEvent.captchaLoaded || timeTaken > 60000) {
-      console.log("Token Has refreshed : "  + timeTaken);
+      console.log("Token Has refreshed : " + timeTaken);
       reCaptchaRef.current.execute();
-    }else{
-      console.log("using existing token : "  + timeTaken);
+    } else {
+      console.log("using existing token : " + timeTaken);
     }
   };
 
-  const addLocalEvent = (key,value) => {
+  const addLocalEvent = (key, value) => {
     setEvents(localEvent => ({ ...localEvent, [key]: value }));
   }
-   
+
   const enableLoading = event => {
     setEvents(localEvent => ({ ...localEvent, "loading": "is-loading" }));
   };

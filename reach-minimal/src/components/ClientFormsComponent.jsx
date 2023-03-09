@@ -305,7 +305,7 @@ const ClientFormsComponent = () => {
                 </div>
               </div>
               {/* -- Client Information End  -- */}
-              <div className={`${values.applyFor != "Married / Partners - Both applying together" && "displayNone"}`}>
+              <div className={`${values.applyFor !== "Married / Partners - Both applying together" && "displayNone"}`}>
                 <h2 className="title is-4">Spouse/Partner Information</h2>
                 <hr />
 
@@ -544,7 +544,7 @@ const ClientFormsComponent = () => {
                       name="agentPhoneNumber"
                       onChange={handleChange}
                       value={values.agentPhoneNumber || ""}
-                      placeholder="123-4567-8901"
+                      placeholder="123-456-8901"
                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                       required
                     />
@@ -591,7 +591,7 @@ const ClientFormsComponent = () => {
                   <label className="label">Agreement: Business Associate Agreement <label className="has-text-danger">*</label> </label>
                   <div className="control">
                     <label className="radio" htmlFor="acceptAgreement-0">
-                      <input type="radio" name="acceptAgreement" id="acceptAgreement-0" value="yes" required onChange={handleChange} />
+                      <input type="radio" name="acceptAgreement" id="acceptAgreement-0" value="yes" required onClick={handleChange} onChange={handleChange} />
                       &nbsp;&nbsp;Yes, I have read and agree to the Business Associate Agreement.
                     </label>
                     {errors.acceptAgreement && <p className="help is-danger">{errors.acceptAgreement}</p>}
@@ -600,7 +600,7 @@ const ClientFormsComponent = () => {
               </div>
               <hr />
               <div className="has-text-centered">
-                <button type="submit" className={`button is-medium is-responsive is-primary ${localEvent.loading}`} onChange={handleChange} >
+                <button type="submit" className={`button is-medium is-responsive is-primary ${localEvent.loading}`}  onChange={handleChange} >
                   &nbsp;&nbsp;&nbsp; Submit &nbsp;&nbsp;&nbsp;
                 </button>
                 <ReCAPTCHA
