@@ -1,21 +1,21 @@
-<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
-    <caption>Agent Information</caption>
-    <tbody>
-    <tr>
-        <th scope="row">Agent Name</th>
-        <td data-label="Agent Name">${clientFirstName} ${clientLastName}</td>
+<table style="background-color: transparent;border-collapse: collapse;font-family: Arial, Helvetica, sans-serif;border: 1px solid #dbdbdb;width: 75%!important;">
+    <caption style="color: #242423;font-size: 1.25em;font-weight: 700;padding-bottom: .66rem;margin-top: 2.56rem;text-align: left;">Agent Information</caption>
+    <tbody style="border-bottom: 1px solid #dbdbdb;border-top: 1px solid #dbdbdb;font-size: .84em;">
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+       <th scope="row" style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">Agent Name</th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"  data-label="Agent Name">${agentFirstName} ${agentLastName}</td>
     </tr>
-    <tr>
-        <th scope="row">Phone Number </th>
-        <td data-label="Phone Number ">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+       <th scope="row" style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">Phone Number </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"  data-label="Phone Number ">${agentPhoneNumber}</td>
     </tr>
-    <tr>
-        <th scope="row">Agent Residence State</th>
-        <td data-label="Agent Residence State">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+       <th scope="row" style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">Agent Residence State</th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"  data-label="Agent Residence State">${agentState}</td>
     </tr>
-    <tr>
-        <th scope="row">Agent Email</th>
-        <td data-label="Agent Email">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+       <th scope="row" style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">Agent Email</th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"  data-label="Agent Email">${agentEmail}</td>
     </tr>
     </tbody>
 </table>

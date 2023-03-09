@@ -14,61 +14,70 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class ClientForm {
 
     @JsonProperty("applyFor")
-    private String applyFor;
+    private String applyFor = "";
     @JsonProperty("clientState")
-    private String clientState;
+    private String clientState = "";
     @JsonProperty("agentEmail")
-    private String agentEmail;
+    private String agentEmail = "";
     @JsonProperty("acceptAgreement")
-    private String acceptAgreement;
+    private String acceptAgreement = "";
     @JsonProperty("meetingDate")
-    private String meetingDate;
+    private String meetingDate = "";
     @JsonProperty("meetingTime")
-    private String meetingTime;
+    private String meetingTime = "";
     @JsonProperty("clientFirstName")
-    private String clientFirstName;
+    private String clientFirstName = "";
     @JsonProperty("clientLastName")
-    private String clientLastName;
+    private String clientLastName = "";
     @JsonProperty("clientAge")
-    private String clientAge;
+    private String clientAge = "";
     @JsonProperty("clientTobaccoNicUse")
-    private String clientTobaccoNicUse;
+    private String clientTobaccoNicUse = "";
     @JsonProperty("clientGender")
-    private String clientGender;
+    private String clientGender = "";
     @JsonProperty("clientLastPhysicalComplete")
-    private String clientLastPhysicalComplete;
+    private String clientLastPhysicalComplete = "";
     @JsonProperty("clientHeight")
-    private String clientHeight;
+    private String clientHeight = "";
     @JsonProperty("clientWeight")
-    private String clientWeight;
+    private String clientWeight = "";
+    @JsonProperty("clientMedication")
+    private String clientMedication = "";
+    @JsonProperty("clientHealth")
+    private String clientHealth = "";
     @JsonProperty("partnerFirstName")
-    private String partnerFirstName;
+    private String partnerFirstName = "";
     @JsonProperty("partnerLastName")
-    private String partnerLastName;
+    private String partnerLastName = "";
     @JsonProperty("partnerAge")
-    private String partnerAge;
+    private String partnerAge = "";
+    @JsonProperty("partnerGender")
+    private String partnerGender = "";
     @JsonProperty("partnerLastPhysicalComplete")
-    private String partnerLastPhysicalComplete;
+    private String partnerLastPhysicalComplete = "";
     @JsonProperty("partnerHeight")
-    private String partnerHeight;
+    private String partnerHeight = "";
     @JsonProperty("partnerWeight")
-    private String partnerWeight;
+    private String partnerWeight = "";
+
+    @JsonProperty("partnerTobaccoNicUse")
+    private String partnerTobaccoNicUse = "";
     @JsonProperty("partnerMedication")
-    private String partnerMedication;
+    private String partnerMedication = "";
     @JsonProperty("partnerHealth")
-    private String partnerHealth;
+    private String partnerHealth = "";
     @JsonProperty("moreDetails")
-    private String moreDetails;
+    private String moreDetails = "";
     @JsonProperty("priorExperience")
-    private String priorExperience;
+    private String priorExperience = "";
     @JsonProperty("agentFirstName")
-    private String agentFirstName;
+    private String agentFirstName = "";
     @JsonProperty("agentLastName")
-    private String agentLastName;
+    private String agentLastName = "";
     @JsonProperty("agentPhoneNumber")
-    private String agentPhoneNumber;
+    private String agentPhoneNumber = "";
     @JsonProperty("agentState")
-    private String agentState;
+    private String agentState = "";
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -200,6 +209,17 @@ public class ClientForm {
     @JsonProperty("clientHeight")
     public void setClientHeight(String clientHeight) {
         this.clientHeight = clientHeight;
+    }
+
+
+    @JsonProperty("clientHealth")
+    public String getClientHealth() {
+        return clientHealth;
+    }
+
+    @JsonProperty("clientHealth")
+    public void setClientHealth(String clientWeight) {
+        this.clientHealth = clientHealth;
     }
 
     @JsonProperty("clientWeight")
@@ -362,4 +382,31 @@ public class ClientForm {
         this.additionalProperties.put(name, value);
     }
 
+    public String getClientMedication() {
+        return clientMedication;
+    }
+
+    public void setClientMedication(String clientMedication) {
+        this.clientMedication = clientMedication;
+    }
+
+    public String getPartnerGender() {
+        return partnerGender;
+    }
+
+    public void setPartnerGender(String partnerGender) {
+        this.partnerGender = partnerGender;
+    }
+
+    public String getPartnerTobaccoNicUse() {
+        return partnerTobaccoNicUse;
+    }
+
+    public void setPartnerTobaccoNicUse(String partnerTobaccoNicUse) {
+        this.partnerTobaccoNicUse = partnerTobaccoNicUse;
+    }
+
+    public void setAdditionalProperties(Map<String, Object> additionalProperties) {
+        this.additionalProperties = additionalProperties;
+    }
 }

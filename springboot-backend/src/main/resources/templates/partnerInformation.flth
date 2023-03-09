@@ -1,49 +1,107 @@
-<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
-    <caption>Spouse/Partner Information</caption>
-    <tbody>
-    <tr>
-        <th scope="row">Spouse/Partner Name</th>
-        <td data-label="Spouse/Partner Name">${clientFirstName} ${clientLastName}</td>
+<table style="background-color: transparent;border-collapse: collapse;font-family: Arial, Helvetica, sans-serif;border: 1px solid #dbdbdb;width: 75%!important;">
+    <caption
+            style="color: #242423;font-size: 1.25em;font-weight: 700;padding-bottom: .66rem;margin-top: 2.56rem;text-align: left;">
+        Spouse/Partner Information
+    </caption>
+    <tbody style="border-bottom: 1px solid #dbdbdb;border-top: 1px solid #dbdbdb;font-size: .84em;">
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Spouse/Partner Name
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Spouse/Partner Name">${partnerFirstName} ${partnerLastName}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Spouse Date of Birth (or Age)</th>
-        <td data-label="Spouse Date of Birth (or Age)">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Spouse Date of Birth (or Age)
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Spouse Date of Birth (or Age)">${partnerAge}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Spouse Gender</th>
-        <td data-label="Spouse Gender">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Spouse Gender
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Spouse Gender">${partnerGender}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Spouse Last Complete Physical</th>
-        <td data-label="Spouse Last Complete Physical">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Spouse Last Complete Physical
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Spouse Last Complete Physical">${partnerLastPhysicalComplete}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Tobacco/Nicotine Use</th>
-        <td data-label="Tobacco/Nicotine Use">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Tobacco/Nicotine Use
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Tobacco/Nicotine Use">${partnerTobaccoNicUse}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Height</th>
-        <td data-label="Height">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Height
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Height">${partnerHeight}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Weight</th>
-        <td data-label="Weight">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Weight
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Weight">${partnerWeight}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Spouse/Partner Medications with Dosage &amp; Condition:</th>
-        <td data-label="Spouse/Partner Medications with Dosage & Condition:">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Spouse/Partner Medications with Dosage &amp; Condition:
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Spouse/Partner Medications with Dosage & Condition:">${partnerMedication}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Spouse/Partner Surgeries or Other Health Concerns:</th>
-        <td data-label="Spouse/Partner Surgeries or Other Health Concerns:">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Spouse/Partner Surgeries or Other Health Concerns:
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Spouse/Partner Surgeries or Other Health Concerns:">${partnerHealth}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Target Premium, Benefit or Carrier Preferences?</th>
-        <td data-label="Target Premium, Benefit or Carrier Preferences?">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Target Premium, Benefit or Carrier Preferences?
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Target Premium, Benefit or Carrier Preferences?">${moreDetails}
+        </td>
     </tr>
-    <tr>
-        <th scope="row">Have you been working with anyone at Newman LTC?</th>
-        <td data-label="Have you been working with anyone at Newman LTC?">${clientState}</td>
+    <tr style="border-bottom: 1px solid #dbdbdb;">
+        <th scope="row"
+            style="width: 25%;text-align: left;padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;">
+            Have you been working with anyone at Newman LTC?
+        </th>
+        <td style="padding-right: 1em;border: 1px solid #dbdbdb;padding-left: 1em;padding-top: .75em;vertical-align: top;padding-bottom: .75em;"
+            data-label="Have you been working with anyone at Newman LTC?">${priorExperience}
+        </td>
     </tr>
     </tbody>
 </table>

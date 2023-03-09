@@ -30,7 +30,7 @@ const useForm = (callback, validate) => {
     if (localEvent.formSubmitClicked === true) {
       setErrors(validate(values));
     }
-    if (values.applyFor === "3") {
+    if (values.applyFor === "Single") {
       Object.entries(values).map(([key, value]) => {
         if (key.startsWith("partner"))
           delete values[key];

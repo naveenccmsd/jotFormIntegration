@@ -14,7 +14,7 @@ const ClientFormsComponent = () => {
 
   const { values, localEvent, reCaptchaRef, handleChange, errors, handleSubmit, resetForm, enableLoading, disableLoading, addLocalEvent } = useForm(login, validate);
   if (!values.applyFor) {
-    values.applyFor = "1";
+    values.applyFor = "Married / Partners - Both applying together";
   }
   if (!localEvent.captchaLoaded) {
     localEvent.captchaLoaded = false;
@@ -68,17 +68,17 @@ const ClientFormsComponent = () => {
                   <div className="control">
                     <div className="column is-full">
                       <label className="radio" htmlFor="applyFor-0">
-                        <input type="radio" name="applyFor" id="applyFor-0" value="1" checked={values.applyFor === "1"} onClick={handleChange} onChange={handleChange} />
+                        <input type="radio" name="applyFor" id="applyFor-0" value="Married / Partners - Both applying together" checked={values.applyFor === "Married / Partners - Both applying together"} onClick={handleChange} onChange={handleChange} />
                         &nbsp;&nbsp; Married / Partners - Both applying together
                       </label>
                       <br />
                       <label className="radio" htmlFor="applyFor-1">
-                        <input type="radio" name="applyFor" id="applyFor-1" value="2" checked={values.applyFor === "2"} onClick={handleChange} onChange={handleChange} />
+                        <input type="radio" name="applyFor" id="applyFor-1" value="Married / Partners - Only one partner applying" checked={values.applyFor === "Married / Partners - Only one partner applying"} onClick={handleChange} onChange={handleChange} />
                         &nbsp;&nbsp; Married / Partners - Only one partner applying
                       </label>
                       <br />
                       <label className="radio" htmlFor="applyFor-2">
-                        <input type="radio" name="applyFor" id="applyFor-2" value="3" checked={values.applyFor === "3"} onClick={handleChange} onChange={handleChange} />
+                        <input type="radio" name="applyFor" id="applyFor-2" value="Single" checked={values.applyFor === "Single"} onClick={handleChange} onChange={handleChange} />
                         &nbsp;&nbsp; Single
                       </label>
                     </div>
@@ -193,7 +193,7 @@ const ClientFormsComponent = () => {
                   <label className="label">Client Gender <label className="has-text-danger">*</label></label>
                   <div className="control">
                     <label className="radio" htmlFor="clientGender-0">
-                      <input type="radio" name="clientGender" id="clientGender-0" value="Male" checked={!values.clientGender || values.clientGender === "Male"} onChange={handleChange} />
+                      <input type="radio" name="clientGender" id="clientGender-0" value="Male" checked={values.clientGender === "Male"} onChange={handleChange} />
                       Male
                     </label> <br />
                     <label className="radio" htmlFor="clientGender-1">
@@ -227,7 +227,7 @@ const ClientFormsComponent = () => {
                   <div className="control">
                     <label className="radio" htmlFor="clientTobaccoNicUse-0">
                       <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-0" value="yes"
-                        checked={!values.clientTobaccoNicUse || values.clientTobaccoNicUse === "yes"} onChange={handleChange} />
+                        checked={values.clientTobaccoNicUse === "yes"} onChange={handleChange} />
                       Yes
                     </label> <br />
                     <label className="radio" htmlFor="clientTobaccoNicUse-1">
@@ -280,6 +280,7 @@ const ClientFormsComponent = () => {
                   <div className="control">
                     <textarea className={`textarea ${errors.clientMedication && "is-danger"}`} rows="6" id="clientMedication-0"
                       name="clientMedication"
+                      onChange={handleChange}
                       placeholder="Example: Lisinopril 37.5mg 1x day for Hypertension.">
                     </textarea>
                     {errors.clientMedication && <p className="help is-danger">{errors.clientMedication}</p>}
@@ -293,6 +294,7 @@ const ClientFormsComponent = () => {
                   <div className="control">
                     <textarea className={`textarea ${errors.clientHealth && "is-danger"}`} rows="6" id="clientHealth-0"
                       name="clientHealth"
+                      onChange={handleChange}
                       placeholder="Example: Knee surgery in March 2018. No complications. Completely recovered.">
                     </textarea>
                     {errors.clientHealth && <p className="help is-danger">{errors.clientHealth}</p>}
@@ -300,7 +302,7 @@ const ClientFormsComponent = () => {
                 </div>
               </div>
               {/* -- Client Information End  -- */}
-              <div className={`${values.applyFor === "3" && "displayNone"}`}>
+              <div className={`${values.applyFor === "Single" && "displayNone"}`}>
                 <h2 className="title is-4">Spouse/Partner Information</h2>
                 <hr />
 
@@ -360,7 +362,7 @@ const ClientFormsComponent = () => {
                     <label className="label">Spouse Gender</label>
                     <div className="control">
                       <label className="radio" htmlFor="partnerGender-0">
-                        <input type="radio" name="partnerGender" id="partnerGender-0" value="Male" checked={!values.partnerGender || values.partnerGender === "Male"} onChange={handleChange} />
+                        <input type="radio" name="partnerGender" id="partnerGender-0" value="Male" checked={values.partnerGender === "Male"} onChange={handleChange} />
                         Male
                       </label> <br />
                       <label className="radio" htmlFor="partnerGender-1">
@@ -393,7 +395,7 @@ const ClientFormsComponent = () => {
                     <label className="label">Tobacco/Nicotine Use</label>
                     <div className="control">
                       <label className="radio" htmlFor="partnerTobaccoNicUse-0">
-                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-0" value="yes" checked={!values.partnerTobaccoNicUse || values.partnerTobaccoNicUse === "yes"} onChange={handleChange} />
+                        <input type="radio" name="partnerTobaccoNicUse" id="partnerTobaccoNicUse-0" value="yes" checked={values.partnerTobaccoNicUse === "yes"} onChange={handleChange} />
                         Yes
                       </label> <br />
                       <label className="radio" htmlFor="partnerTobaccoNicUse-1">
