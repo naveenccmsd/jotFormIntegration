@@ -12,12 +12,13 @@ const TEST_SITE_KEY = "6LdKyeYkAAAAAHhlgwEVwIuAG8o8Z3KJpy45bhQW";
 
 const ClientFormsComponent = () => {
 
+
   const { values, localEvent, reCaptchaRef, handleChange, errors, handleSubmit, resetForm, enableLoading, disableLoading, addLocalEvent } = useForm(login, validate);
   if (!values.applyFor) {
     values.applyFor = "Married / Partners - Both applying together";
   }
   if (!localEvent.captchaLoaded) {
-    localEvent.captchaLoaded = false;
+    localEvent.captchaLoaded = 0;
   }
   if (!localEvent.formSubmitStatus) {
     localEvent.formSubmitStatus = false;
@@ -37,13 +38,15 @@ const ClientFormsComponent = () => {
 
   function onChangeCaptcha(token) {
     localEvent.captchaToken = token;
-    console.log("Cabtcha obtained " + token);
-    localEvent.captchaLoaded = true;
+    localEvent.captchaLoaded = Date.now();
+    submit();
   }
-
   function login() {
+    // Disabled temporarily 
+  }
+  function submit() {
     let formData = values;
-    formData.token = localEvent.captchaToken;
+    formData.captchaToken = localEvent.captchaToken;
     enableLoading();
     ClientInformationService.createFormEntry(formData).then(res => {
       // console.log(res);

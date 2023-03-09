@@ -12,7 +12,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class ClientForm {
-
+    @JsonProperty("captchaToken")
+    private String captchaToken;
     @JsonProperty("applyFor")
     private String applyFor = "";
     @JsonProperty("clientState")
@@ -380,6 +381,14 @@ public class ClientForm {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    public String getCaptchaToken() {
+        return captchaToken;
+    }
+
+    public void setCaptchaToken(String captchaToken) {
+        this.captchaToken = captchaToken;
     }
 
     public String getClientMedication() {

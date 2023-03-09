@@ -10,6 +10,7 @@ const useForm = (callback, validate) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
+      refreshToken();
       callback();
     }
   }, [errors]);
@@ -25,7 +26,6 @@ const useForm = (callback, validate) => {
     event.persist();
     setValues(values => ({ ...values, [event.target.name]: event.target.value }));
     setIsSubmitting(false);
-    refreshToken();
     console.log(values);
     if (localEvent.formSubmitClicked === true) {
       setErrors(validate(values));
@@ -41,8 +41,12 @@ const useForm = (callback, validate) => {
   };
 
   const refreshToken = event => {
-    if (!localEvent.captchaLoaded || localEvent.captchaLoaded === false) {
+    const timeTaken = Date.now() - localEvent.captchaLoaded;
+    if (!localEvent.captchaLoaded || timeTaken > 60000) {
+      console.log("Token Has refreshed : "  + timeTaken);
       reCaptchaRef.current.execute();
+    }else{
+      console.log("using existing token : "  + timeTaken);
     }
   };
 

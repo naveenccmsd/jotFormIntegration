@@ -3,12 +3,13 @@ package net.javaguides.springboot.controller;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
 import net.javaguides.springboot.model.ClientEmailBuilder;
-import net.javaguides.springboot.model.ClientEmailService;
+import net.javaguides.springboot.service.CaptchaServiceV3;
+import net.javaguides.springboot.service.ClientEmailService;
 import net.javaguides.springboot.model.ClientForm;
+import net.javaguides.springboot.service.ICaptchaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -21,6 +22,9 @@ public class ClientFormController {
     Configuration fmConfiguration;
     @Autowired
     ClientEmailService clientEmailService;
+
+    @Autowired
+    private ICaptchaService captchaServiceV3;
 
     Logger logger = LoggerFactory.getLogger(ClientFormController.class);
 
@@ -35,6 +39,8 @@ public class ClientFormController {
             throw new RuntimeException(e);
         }
         try {
+            logger.info("Token : {}", formData.getCaptchaToken());
+            captchaServiceV3.processResponse(formData.getCaptchaToken(), CaptchaServiceV3.REGISTER_ACTION);
             String emailBody = ClientEmailBuilder.createEmailForm(fmConfiguration, formData);
             System.out.println(emailBody);
             clientEmailService.sendEmail(emailBody);

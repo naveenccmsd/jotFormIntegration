@@ -1,4 +1,4 @@
-package net.javaguides.springboot.model;
+package net.javaguides.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
