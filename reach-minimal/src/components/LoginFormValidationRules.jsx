@@ -1,13 +1,12 @@
 export default function validate(values) {
   let errors = {};
   let required = "This field is required.";
-  // const {cost, ...rest} = current;
 
-  // if (!values.agentEmail) {
-  //   errors.agentEmail = "Email address is required";
-  // } else if (!/\S+@\S+\.\S+/.test(values.agentEmail)) {
-  //   errors.agentEmail = "Email address is invalid";
-  // }
+  if (!values.agentEmail) {
+    errors.agentEmail = "Email address is required";
+  } else if (!/\S+@\S+\.\S+/.test(values.agentEmail)) {
+    errors.agentEmail = "Email address is invalid";
+  }
 
   // if (!values.password) {
   //   errors.password = "Password is required";
@@ -27,6 +26,9 @@ export default function validate(values) {
   if (!values.agentState) errors.agentState = required;
   if (!values.agentEmail) errors.agentEmail = required;
   if (!values.acceptAgreement) errors.acceptAgreement = required;
+
+
+ 
 
   return errors;
 }

@@ -3,25 +3,57 @@ import React from "react";
 import validate from "./LoginFormValidationRules";
 import ClientInformationService from '../services/ClientInformationService';
 import DropDown from './Dropdown';
+import ReCAPTCHA from 'react-google-recaptcha';
+
+// const TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+const TEST_SITE_KEY = "6LdKyeYkAAAAAHhlgwEVwIuAG8o8Z3KJpy45bhQW";
+
 
 
 const ClientFormsComponent = () => {
-  const { values, localEvent, handleChange, errors, handleSubmit, resetForm, enableLoading, disableLoading } = useForm(login, validate);
+
+  const { values, localEvent, reCaptchaRef, handleChange, errors, handleSubmit, resetForm, enableLoading, disableLoading, addLocalEvent } = useForm(login, validate);
   if (!values.applyFor) {
     values.applyFor = "1";
   }
-  if(!localEvent.formSubmitClicked){
-    localEvent.formSubmitClicked = false;
+  if (!localEvent.captchaLoaded) {
+    localEvent.captchaLoaded = false;
+  }
+  if (!localEvent.formSubmitStatus) {
+    localEvent.formSubmitStatus = false;
+  }
+  if (!localEvent.modalSuccess) {
+    localEvent.modalSuccess = "inactive";
+  }
+  if (!localEvent.modalSuccess) {
+    localEvent.modalFaild = "inactive";
+  }
+  function closeModalSuccess() {
+    addLocalEvent("modalSuccess", "inactive");
+  }
+  function closeModalFailed() {
+    addLocalEvent("modalFailed", "inactive");
   }
 
+  function onChangeCaptcha(token) {
+    localEvent.captchaToken = token;
+    console.log("Cabtcha obtained " + token);
+    localEvent.captchaLoaded = true;
+  }
 
   function login() {
-    console.log(values);
     let formData = values;
-    enableLoading()
+    formData.token = localEvent.captchaToken;
+    enableLoading();
     ClientInformationService.createFormEntry(formData).then(res => {
-      disableLoading()
-      resetForm()
+      // console.log(res);
+      addLocalEvent("modalSuccess", "is-active");
+      disableLoading();
+      resetForm();
+    }).catch(error => {
+      addLocalEvent("modalFailed", "is-active");
+      console.error(error);
+      disableLoading();
     });
   }
   return (
@@ -566,8 +598,35 @@ const ClientFormsComponent = () => {
                 <button type="submit" className={`button is-medium is-responsive is-primary ${localEvent.loading}`} onChange={handleChange} >
                   &nbsp;&nbsp;&nbsp; Submit &nbsp;&nbsp;&nbsp;
                 </button>
+                <ReCAPTCHA
+                  style={{ display: "inline-block" }}
+                  theme="dark"
+                  size="invisible"
+                  ref={reCaptchaRef}
+                  sitekey={TEST_SITE_KEY}
+                  onChange={onChangeCaptcha}
+                />
               </div>
             </form>
+
+            <div className={`modal ${localEvent.modalSuccess}`}>
+              <div className="modal-background"></div>
+              <div className="modal-card">
+                <div className="notification is-primary">
+                  <button className="delete" onClick={closeModalSuccess}></button>
+                  <strong>Thank you !!</strong>, Your Form has been submitted.
+                </div>
+              </div>
+            </div>
+            <div className={`modal ${localEvent.modalFailed}`}>
+              <div className="modal-background"></div>
+              <div className="modal-card">
+                <div className="notification is-danger">
+                  <button className="delete" onClick={closeModalFailed}></button>
+                  <strong>Error : </strong> Unable to submit form. Please Try Again
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div >
