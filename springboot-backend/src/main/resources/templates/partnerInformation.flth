@@ -1,0 +1,51 @@
+<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
+    <caption>Spouse/Partner Information</caption>
+    <tbody>
+    <tr>
+        <th scope="row">Spouse/Partner Name</th>
+        <td data-label="Spouse/Partner Name">${clientFirstName} ${clientLastName}</td>
+    </tr>
+    <tr>
+        <th scope="row">Spouse Date of Birth (or Age)</th>
+        <td data-label="Spouse Date of Birth (or Age)">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Spouse Gender</th>
+        <td data-label="Spouse Gender">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Spouse Last Complete Physical</th>
+        <td data-label="Spouse Last Complete Physical">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Tobacco/Nicotine Use</th>
+        <td data-label="Tobacco/Nicotine Use">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Height</th>
+        <td data-label="Height">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Weight</th>
+        <td data-label="Weight">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Spouse/Partner Medications with Dosage &amp; Condition:</th>
+        <td data-label="Spouse/Partner Medications with Dosage & Condition:">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Spouse/Partner Surgeries or Other Health Concerns:</th>
+        <td data-label="Spouse/Partner Surgeries or Other Health Concerns:">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Target Premium, Benefit or Carrier Preferences?</th>
+        <td data-label="Target Premium, Benefit or Carrier Preferences?">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Have you been working with anyone at Newman LTC?</th>
+        <td data-label="Have you been working with anyone at Newman LTC?">${clientState}</td>
+    </tr>
+    </tbody>
+</table>
+
+

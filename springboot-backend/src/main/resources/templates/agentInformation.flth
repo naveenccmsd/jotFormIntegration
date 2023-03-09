@@ -1,0 +1,21 @@
+<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
+    <caption>Agent Information</caption>
+    <tbody>
+    <tr>
+        <th scope="row">Agent Name</th>
+        <td data-label="Agent Name">${clientFirstName} ${clientLastName}</td>
+    </tr>
+    <tr>
+        <th scope="row">Phone Number </th>
+        <td data-label="Phone Number ">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Agent Residence State</th>
+        <td data-label="Agent Residence State">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Agent Email</th>
+        <td data-label="Agent Email">${clientState}</td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%" style="background-color: transparent;border-collapse:collapse;font-family: Arial, Helvetica, sans-serif">
+    <caption>Client Information</caption>
+    <tbody>
+    <tr>
+        <th scope="row">Client Name</th>
+        <td data-label="Client Name">${clientFirstName} ${clientLastName}</td>
+    </tr>
+    <tr>
+        <th scope="row">State of Client Residence</th>
+        <td data-label="State of Client Residence">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Client Meeting Date</th>
+        <td data-label="Client Meeting Date">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Client Meeting Time</th>
+        <td data-label="Client Meeting Time">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Date of Birth (or Age)</th>
+        <td data-label="Date of Birth (or Age)">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Client Gender</th>
+        <td data-label="Client Gender">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Last Complete Physical</th>
+        <td data-label="Last Complete Physical">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Tobacco/Nicotine Use</th>
+        <td data-label="Tobacco/Nicotine Use">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Height</th>
+        <td data-label="Height">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Weight</th>
+        <td data-label="Weight">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Client Medications with Dosage &amp; Condition</th>
+        <td data-label="Client Medications with Dosage & Condition">${clientState}</td>
+    </tr>
+    <tr>
+        <th scope="row">Client Surgeries or Other Health Concerns</th>
+        <td data-label="Client Surgeries or Other Health Concerns">${clientState}</td>
+    </tr>
+    </tbody>
+</table>

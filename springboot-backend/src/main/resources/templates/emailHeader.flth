@@ -1,0 +1,15 @@
+<html>
+<head></head>
+<body>
+
+<h2> "FORM HEADER </h2>
+
+<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
+    <caption>Agent Information</caption>
+    <tbody>
+    <tr>
+        <th scope="row">Apply For</th>
+        <td data-label="Apply For">${clientFirstName} ${clientLastName}</td>
+    </tr>
+    </tbody>
+</table>
