@@ -305,7 +305,7 @@ const ClientFormsComponent = () => {
                 </div>
               </div>
               {/* -- Client Information End  -- */}
-              <div className={`${values.applyFor === "Single" && "displayNone"}`}>
+              <div className={`${values.applyFor != "Married / Partners - Both applying together" && "displayNone"}`}>
                 <h2 className="title is-4">Spouse/Partner Information</h2>
                 <hr />
 
