@@ -33,7 +33,7 @@ const useForm = (callback, validate) => {
         setErrors(validate(values));
       }
       if (values.applyFor !== "Married / Partners - Both applying together") {
-        Object.entries(values).map(([key, value]) => {
+        Object.entries(values).forEach(([key, value]) => {
           if (key.startsWith("partner"))
             delete values[key];
         });
