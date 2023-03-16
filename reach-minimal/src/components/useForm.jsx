@@ -12,14 +12,24 @@ const useForm = (callback, validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
+    }else if(Object.keys(errors).length > 0 && isSubmitting){
+      scrollToError();
     }
   }, [errors]);
-
+  const scrollToError = () => {
+    if(Object.keys(errors).length > 0){
+      const element = document.getElementsByClassName('help is-danger');
+      if (element && element[0]) {
+        element[0].scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
+      }
+    }
+  };
   const handleSubmit = event => {
     if (event) event.preventDefault();
     setIsSubmitting(true);
     localEvent.formSubmitClicked = true;
     setErrors(validate(values));
+    
   };
 
   const handleChange = event => {
