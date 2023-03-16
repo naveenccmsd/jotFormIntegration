@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import { isValidValue } from "./LoginFormValidationRules";
+import { normalizeInput } from "./LoginFormValidationRules";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
@@ -12,12 +12,12 @@ const useForm = (callback, validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
-    }else if(Object.keys(errors).length > 0 && isSubmitting){
+    } else if (Object.keys(errors).length > 0 && isSubmitting) {
       scrollToError();
     }
   }, [errors]);
   const scrollToError = () => {
-    if(Object.keys(errors).length > 0){
+    if (Object.keys(errors).length > 0) {
       const element = document.getElementsByClassName('help is-danger');
       if (element && element[0]) {
         element[0].scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
@@ -29,24 +29,24 @@ const useForm = (callback, validate) => {
     setIsSubmitting(true);
     localEvent.formSubmitClicked = true;
     setErrors(validate(values));
-    
+
   };
 
   const handleChange = event => {
     event.persist();
-    if (isValidValue(event.target.name, event.target.value)) {
-      setValues(values => ({ ...values, [event.target.name]: event.target.value }));
-      setIsSubmitting(false);
-      if (localEvent.formSubmitClicked === true) {
-        setErrors(validate(values));
-      }
-      if (values.applyFor !== "Married / Partners - Both applying together") {
-        Object.entries(values).forEach(([key, value]) => {
-          if (key.startsWith("partner"))
-            delete values[key];
-        });
-      }
+    const val = normalizeInput(event.target.name, event.target.value);
+    setValues(values => ({ ...values, [event.target.name]: val }));
+    setIsSubmitting(false);
+    if (localEvent.formSubmitClicked === true) {
+      setErrors(validate(values));
     }
+    if (values.applyFor !== "Married / Partners - Both applying together") {
+      Object.entries(values).forEach(([key, value]) => {
+        if (key.startsWith("partner"))
+          delete values[key];
+      });
+    }
+
 
   };
 

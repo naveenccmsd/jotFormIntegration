@@ -129,6 +129,7 @@ const ClientFormsComponent = () => {
                       type="date"
                       name="meetingDate"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.meetingDate || ""}
                       required
                     />
@@ -161,6 +162,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="clientFirstName"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.clientFirstName || ""}
                       placeholder="Client First Name"
                       required
@@ -176,6 +178,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="clientLastName"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.clientLastName || ""}
                       placeholder="Client Last Name"
                       required
@@ -195,6 +198,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="clientAge"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.clientAge || ""}
                       placeholder="Client DOB or Age"
                       required
@@ -206,11 +210,11 @@ const ClientFormsComponent = () => {
                   <label className="label">Client Gender <label className="has-text-danger">*</label></label>
                   <div className="control">
                     <label className="radio" htmlFor="clientGender-0">
-                      <input type="radio" name="clientGender" id="clientGender-0" value="Male" checked={values.clientGender === "Male"} onChange={handleChange} />
+                      <input type="radio" name="clientGender" id="clientGender-0" value="Male" checked={values.clientGender === "Male"} onClick={handleChange} onChange={handleChange} />
                       Male
                     </label> <br />
                     <label className="radio" htmlFor="clientGender-1">
-                      <input type="radio" name="clientGender" id="clientGender-1" value="Female" checked={values.clientGender === "Female"} onChange={handleChange} />
+                      <input type="radio" name="clientGender" id="clientGender-1" value="Female" checked={values.clientGender === "Female"} onClick={handleChange} onChange={handleChange} />
                       Female
                     </label>
                   </div>
@@ -228,6 +232,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="clientLastPhysicalComplete"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.clientLastPhysicalComplete || ""}
                       placeholder="Date"
                       required
@@ -240,11 +245,11 @@ const ClientFormsComponent = () => {
                   <div className="control">
                     <label className="radio" htmlFor="clientTobaccoNicUse-0">
                       <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-0" value="yes"
-                        checked={values.clientTobaccoNicUse === "yes"} onChange={handleChange} />
+                        checked={values.clientTobaccoNicUse === "yes"} onClick={handleChange} onChange={handleChange} />
                       Yes
                     </label> <br />
                     <label className="radio" htmlFor="clientTobaccoNicUse-1">
-                      <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-1" checked={values.clientTobaccoNicUse === "no"} value="no" onChange={handleChange} />
+                      <input type="radio" name="clientTobaccoNicUse" id="clientTobaccoNicUse-1" checked={values.clientTobaccoNicUse === "no"} value="no" onClick={handleChange} onChange={handleChange} />
                       No
                     </label>
                   </div>
@@ -262,6 +267,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="clientHeight"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.clientHeight || ""}
                       placeholder="Client Height"
                       required
@@ -278,6 +284,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="clientWeight"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.clientWeight || ""}
                       placeholder="Client Weight"
                       required
@@ -294,6 +301,7 @@ const ClientFormsComponent = () => {
                     <textarea className={`textarea ${errors.clientMedication && "is-danger"}`} rows="6" id="clientMedication-0"
                       name="clientMedication"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       placeholder="Example: Lisinopril 37.5mg 1x day for Hypertension.">
                     </textarea>
                     {errors.clientMedication && <p className="help is-danger">{errors.clientMedication}</p>}
@@ -308,6 +316,7 @@ const ClientFormsComponent = () => {
                     <textarea className={`textarea ${errors.clientHealth && "is-danger"}`} rows="6" id="clientHealth-0"
                       name="clientHealth"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       placeholder="Example: Knee surgery in March 2018. No complications. Completely recovered.">
                     </textarea>
                     {errors.clientHealth && <p className="help is-danger">{errors.clientHealth}</p>}
@@ -330,6 +339,7 @@ const ClientFormsComponent = () => {
                         type="text"
                         name="partnerFirstName"
                         onChange={handleChange}
+                        onBlur={handleChange}
                         value={values.partnerFirstName || ""}
                         placeholder="First Name"
                         required
@@ -345,6 +355,7 @@ const ClientFormsComponent = () => {
                         type="text"
                         name="partnerLastName"
                         onChange={handleChange}
+                        onBlur={handleChange}
                         value={values.partnerLastName || ""}
                         placeholder="Last Name"
                         required
@@ -364,6 +375,7 @@ const ClientFormsComponent = () => {
                         type="text"
                         name="partnerAge"
                         onChange={handleChange}
+                        onBlur={handleChange}
                         value={values.partnerAge || ""}
                         placeholder="Client DOB or Age"
                         required
@@ -397,6 +409,7 @@ const ClientFormsComponent = () => {
                         type="text"
                         name="partnerLastPhysicalComplete"
                         onChange={handleChange}
+                        onBlur={handleChange}
                         value={values.partnerLastPhysicalComplete || ""}
                         placeholder="Date"
                         required
@@ -430,6 +443,7 @@ const ClientFormsComponent = () => {
                         type="text"
                         name="partnerHeight"
                         onChange={handleChange}
+                        onBlur={handleChange}
                         value={values.partnerHeight || ""}
                         placeholder="Spouse Height"
                         required
@@ -520,6 +534,7 @@ const ClientFormsComponent = () => {
                       type="text"
                       name="agentFirstName"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.agentFirstName || ""}
                       placeholder="First Name"
                       required
@@ -553,12 +568,14 @@ const ClientFormsComponent = () => {
                       type="tel"
                       name="agentPhoneNumber"
                       onChange={handleChange}
+                      onBlur={handleChange}
                       value={values.agentPhoneNumber || ""}
                       placeholder="123-456-8901"
                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                       required
                     />
                   </div>
+                  
                   {errors.agentPhoneNumber && <p className="help is-danger">{errors.agentPhoneNumber}</p>}
                 </div>
                 <div className="field column is-half">
