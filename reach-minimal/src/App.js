@@ -1,4 +1,5 @@
 import React from 'react';
+import 'animate.css';
 import "bulma/css/bulma.css";
 import './theme.css';
 import './App.css';

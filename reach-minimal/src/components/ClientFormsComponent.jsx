@@ -4,6 +4,7 @@ import validate from "./LoginFormValidationRules";
 import ClientInformationService from '../services/ClientInformationService';
 import DropDown from './Dropdown';
 import ReCAPTCHA from 'react-google-recaptcha';
+import {toast} from 'bulma-toast'
 
 // const TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 // const TEST_SITE_KEY = "6LdKyeYkAAAAAHhlgwEVwIuAG8o8Z3KJpy45bhQW";
@@ -41,16 +42,29 @@ const ClientFormsComponent = () => {
     await refreshToken();
     submit();
   }
+  function toastMessage(type, message){
+    toast({
+      message: message,
+      type: type,
+      dismissible: true,
+      duration:10000,
+      pauseOnHover: true,
+      position: "bottom-right",
+      animate: { in: 'fadeIn', out: 'fadeOut' },
+    })
+  }
   function submit() {
     let formData = values;
     formData.captchaToken = localEvent.captchaToken;
     enableLoading();
     ClientInformationService.createFormEntry(formData).then(res => {
-      addLocalEvent("modalSuccess", "is-active");
+      // addLocalEvent("modalSuccess", "is-active");
+      toastMessage("is-success","<strong>Thank you !!</strong>, Your Form has been submitted.");
       disableLoading();
       resetForm();
     }).catch(error => {
-      addLocalEvent("modalFailed", "is-active");
+      // addLocalEvent("modalFailed", "is-active");
+      toastMessage("is-danger"," <strong>Error : </strong> Unable to submit form. Please Try Again");
       console.error(error);
       disableLoading();
     });
@@ -608,25 +622,6 @@ const ClientFormsComponent = () => {
                 />
               </div>
             </form>
-
-            <div className={`modal ${localEvent.modalSuccess} is-active`}>
-              <div className="modal-background"></div>
-              <div className="modal-card">
-                <div className="notification is-primary">
-                  <button className="delete" onClick={closeModalSuccess}></button>
-                  <strong>Thank you !!</strong>, Your Form has been submitted.
-                </div>
-              </div>
-            </div>
-            <div className={`modal ${localEvent.modalFailed}`}>
-              <div className="modal-background"></div>
-              <div className="modal-card">
-                <div className="notification is-danger">
-                  <button className="delete" onClick={closeModalFailed}></button>
-                  <strong>Error : </strong> Unable to submit form. Please Try Again
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div >
