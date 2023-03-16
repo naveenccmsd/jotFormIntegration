@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import {isValidValue} from "./LoginFormValidationRules";
+import { isValidValue } from "./LoginFormValidationRules";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
@@ -11,7 +11,6 @@ const useForm = (callback, validate) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      refreshToken();
       callback();
     }
   }, [errors]);
@@ -28,7 +27,6 @@ const useForm = (callback, validate) => {
     if (isValidValue(event.target.name, event.target.value)) {
       setValues(values => ({ ...values, [event.target.name]: event.target.value }));
       setIsSubmitting(false);
-      console.log(values);
       if (localEvent.formSubmitClicked === true) {
         setErrors(validate(values));
       }
@@ -42,13 +40,14 @@ const useForm = (callback, validate) => {
 
   };
 
-  const refreshToken = event => {
+  const refreshToken = async () => {
     const timeTaken = Date.now() - localEvent.captchaLoaded;
     if (!localEvent.captchaLoaded || timeTaken > 60000) {
-      console.log("Token Has refreshed : " + timeTaken);
-      reCaptchaRef.current.execute();
+      localEvent.captchaToken = await reCaptchaRef.current.executeAsync();
+      localEvent.captchaLoaded = Date.now();
+      console.log("Token Has refreshed  : " + localEvent.captchaLoaded);
     } else {
-      console.log("using existing token : " + timeTaken);
+      console.log("using existing token : " + localEvent.captchaLoaded);
     }
   };
 
@@ -76,6 +75,7 @@ const useForm = (callback, validate) => {
     enableLoading,
     disableLoading,
     addLocalEvent,
+    refreshToken,
     values,
     errors,
     localEvent,

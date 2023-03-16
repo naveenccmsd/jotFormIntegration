@@ -6,14 +6,15 @@ import DropDown from './Dropdown';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 // const TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-const TEST_SITE_KEY = "6LdKyeYkAAAAAHhlgwEVwIuAG8o8Z3KJpy45bhQW";
+// const TEST_SITE_KEY = "6LdKyeYkAAAAAHhlgwEVwIuAG8o8Z3KJpy45bhQW";
+const RECAPTCHA_SITE_KEY = "6Lc1uwYlAAAAALIjvmBzR54IWIdJNKI5-TCCcZbk"
 
 
 
 const ClientFormsComponent = () => {
 
 
-  const { values, localEvent, reCaptchaRef, handleChange, errors, handleSubmit, resetForm, enableLoading, disableLoading, addLocalEvent } = useForm(login, validate);
+  const { values, localEvent, reCaptchaRef, handleChange, errors, handleSubmit, resetForm, enableLoading, disableLoading, refreshToken, addLocalEvent } = useForm(login, validate);
   if (!values.applyFor) {
     values.applyFor = "Married / Partners - Both applying together";
   }
@@ -35,21 +36,16 @@ const ClientFormsComponent = () => {
   function closeModalFailed() {
     addLocalEvent("modalFailed", "inactive");
   }
-
-  function onChangeCaptcha(token) {
-    localEvent.captchaToken = token;
-    localEvent.captchaLoaded = Date.now();
-    submit();
-  }
-  function login() {
+  async function login() {
     // Disabled temporarily 
+    await refreshToken();
+    submit();
   }
   function submit() {
     let formData = values;
     formData.captchaToken = localEvent.captchaToken;
     enableLoading();
     ClientInformationService.createFormEntry(formData).then(res => {
-      // console.log(res);
       addLocalEvent("modalSuccess", "is-active");
       disableLoading();
       resetForm();
@@ -600,7 +596,7 @@ const ClientFormsComponent = () => {
               </div>
               <hr />
               <div className="has-text-centered">
-                <button type="submit" className={`button is-medium is-responsive is-primary ${localEvent.loading}`}  onChange={handleChange} >
+                <button type="submit" className={`button is-medium is-responsive is-primary ${localEvent.loading}`} >
                   &nbsp;&nbsp;&nbsp; Submit &nbsp;&nbsp;&nbsp;
                 </button>
                 <ReCAPTCHA
@@ -608,13 +604,12 @@ const ClientFormsComponent = () => {
                   theme="dark"
                   size="invisible"
                   ref={reCaptchaRef}
-                  sitekey={TEST_SITE_KEY}
-                  onChange={onChangeCaptcha}
+                  sitekey={RECAPTCHA_SITE_KEY}
                 />
               </div>
             </form>
 
-            <div className={`modal ${localEvent.modalSuccess}`}>
+            <div className={`modal ${localEvent.modalSuccess} is-active`}>
               <div className="modal-background"></div>
               <div className="modal-card">
                 <div className="notification is-primary">

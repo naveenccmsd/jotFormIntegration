@@ -33,11 +33,11 @@ public class ClientFormController {
     @PostMapping("/clientForms")
     public ClientForm addFormEntry(@RequestBody ClientForm formData) {
         logger.info("Result : {}", JsonUtil.objectToJson(formData));
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         try {
             logger.info("Token : {}", formData.getCaptchaToken());
             captchaServiceV3.processResponse(formData.getCaptchaToken(), CaptchaServiceV3.REGISTER_ACTION);
