@@ -36,6 +36,7 @@ const useForm = (callback, validate) => {
     event.persist();
     const val = normalizeInput(event.target.name, event.target.value);
     setValues(values => ({ ...values, [event.target.name]: val }));
+    values[event.target.name] = val;
     setIsSubmitting(false);
     if (localEvent.formSubmitClicked === true) {
       setErrors(validate(values));
