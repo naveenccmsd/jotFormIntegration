@@ -15,6 +15,9 @@ repositories {
 dependencies {
 	compile group: 'com.jcraft', name: 'jsch', version: '0.1.55'
 	implementation 'org.springframework.boot:spring-boot-starter'
+//	implementation 'org.docx4j:docx4j-JAXB-Internal:8.3.3'
+	implementation 'org.docx4j:docx4j-JAXB-ReferenceImpl:8.3.3'
+	implementation 'org.docx4j:docx4j-docx-anon:8.3.3'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
